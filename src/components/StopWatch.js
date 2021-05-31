@@ -21,7 +21,7 @@ function StopWatch() {
           handleLap={handleLap}
           handleReset={handleReset}
         />
-        <Laps laps={laps}/>
+        {laps.length > 0 && <Laps laps={laps}/>}
       </div>
     </div>
   );
