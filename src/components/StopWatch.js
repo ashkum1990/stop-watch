@@ -5,12 +5,12 @@ import Timer from './Timer';
 import Actions from './Actions';
 import Laps from './Laps';
 
-function StopWatch() {
+function StopWatch({title}) {
   const {timer, laps, isActive, isPaused, handleStart, handleStop, handleReset, handleLap} = useTimer();
 
   return (
     <div className="stop-watch">
-      <h2 className="watch-header">StopWatch</h2>
+      <h2 className="watch-header">{title}</h2>
       <div className="watch-container">
         <Timer timer={timer}/>
         <Actions 
@@ -27,4 +27,4 @@ function StopWatch() {
   );
 }
 
-export default React.memo(StopWatch);
+export default StopWatch;
