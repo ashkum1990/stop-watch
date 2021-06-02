@@ -76,10 +76,11 @@ test('check lap button', () => {
   const resetButton = screen.getByRole("button", {
     name: "RESET",
   });
-
-  fireEvent.click(startButton);
-  expect(screen.getByRole("list")).toBeEmpty();
   
+  expect(screen.queryByRole("list")).not.toBeInTheDocument()
+  fireEvent.click(startButton);
+  expect(screen.queryByRole("list")).not.toBeInTheDocument()
+
   fireEvent.click(lapButton);
   fireEvent.click(lapButton);
   fireEvent.click(lapButton);
@@ -87,7 +88,7 @@ test('check lap button', () => {
   expect(screen.getAllByRole("listitem")).toHaveLength(3);
 
   fireEvent.click(resetButton);
-  expect(screen.getByRole("list")).toBeEmpty();
+  expect(screen.queryByRole("list")).not.toBeInTheDocument()
 });
 
 test('check lap list items', async () => {
